@@ -1,0 +1,18 @@
+EXPLAINABLE JAVA REFACTORING STUDIO — START HERE
+
+Project folder:
+D:\final__year\Explainable-Java-Refactoring-Studio
+
+Portable tools (when available):
+D:\final__year\tools\jdk-21.0.12.1+1
+D:\final__year\tools\apache-maven-3.10.0
+D:\final__year\cache\maven-repository
+
+Open PowerShell in the project folder and run:
+powershell -NoProfile -ExecutionPolicy Bypass -File ".\scripts\start.ps1"
+
+Then open http://127.0.0.1:8765
+Keep the terminal open while using the app. Press Ctrl+C to stop the local server.
+
+Optional local AI:
+Start Ollama on this computer, install a code-capable model, then use Refresh models in the app. AI source processing stays on this computer.

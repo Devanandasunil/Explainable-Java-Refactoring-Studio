@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.semanticrefactoring</groupId>
+  <artifactId>explainable-java-refactoring-studio</artifactId>
+  <version>1.0.0</version>
+  <name>Explainable Java Refactoring Studio</name>
+  <description>Reusable Java refactoring engine with a local engineering workbench.</description>
+
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>5.12.2</junit.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.github.javaparser</groupId>
+      <artifactId>javaparser-core</artifactId>
+      <version>3.27.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.14.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.3</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.5.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.16</version>
+        <executions>
+          <execution>
+            <goals><goal>prepare-agent</goal></goals>
+          </execution>
+          <execution>
+            <id>coverage-report</id>
+            <phase>verify</phase>
+            <goals><goal>report</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.28.0</version>
+        <configuration>
+          <inputEncoding>UTF-8</inputEncoding>
+          <rulesets>
+            <ruleset>/rulesets/java/maven-pmd-plugin-default.xml</ruleset>
+          </rulesets>
+        </configuration>
+        <executions>
+          <execution>
+            <id>static-analysis-report</id>
+            <phase>verify</phase>
+            <goals><goal>pmd</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
